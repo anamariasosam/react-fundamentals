@@ -2,8 +2,7 @@ import * as React from 'react'
 import {alfredTip} from '@kentcdodds/react-workshop-app/test-utils'
 import {render, screen} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import App from '../final/06.extra-2'
-// import App from '../exercise/06'
+import App, { AppWithErrorMessage } from '../exercise/06'
 
 beforeAll(() => {
   jest.spyOn(global, 'alert').mockImplementation(() => {})
@@ -14,7 +13,7 @@ beforeEach(() => {
 })
 
 test('calls the onSubmitUsername handler when the submit is fired', () => {
-  render(<App />)
+  render(<AppWithErrorMessage />)
   const input = screen.getByLabelText(/username/i)
   const submit = screen.getByText(/submit/i)
 
